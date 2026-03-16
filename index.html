@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pravin Thombare - Engineering Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com/" />
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+      color: #f1f1f1;
+      padding: 2rem;
+      transition: background 1s ease;
+    }
+
+    .daytime {
+      background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
+      color: #111;
+    }
+
+    .nighttime {
+      background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      animation: fadeIn 2s ease;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      color: #ccc;
+    }
+
+    .main-content {
+      max-width: 1100px;
+      margin: auto;
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .main-content:hover {
+      transform: scale(1.02);
+    }
+
+    .profile img {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      display: block;
+      margin: 1rem auto;
+      border: 4px solid #00bcd4;
+      transition: transform 0.3s;
+    }
+
+    .profile img:hover {
+      transform: scale(1.1);
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .socials a {
+      font-size: 1.8rem;
+      color: #00bcd4;
+      transition: color 0.3s;
+    }
+
+    .socials a:hover {
+      color: #ffffff;
+    }
+
+    .section {
+      margin-top: 2rem;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      color: #00bcd4;
+      margin-bottom: 0.8rem;
+      border-bottom: 1px solid #444;
+      padding-bottom: 0.4rem;
+      text-shadow: 0 0 10px rgba(0, 188, 212, 0.6);
+    }
+
+    ul li {
+      margin-bottom: 0.6rem;
+      font-size: 1.2rem;
+      list-style: none;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    ul li:before {
+      content: '✔️';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #00bcd4;
+      font-size: 1.2rem;
+      transition: transform 0.3s;
+    }
+
+    ul li:hover {
+      transform: scale(1.05);
+      color: #00bcd4;
+    }
+
+    ul li:hover:before {
+      transform: scale(1.2);
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 0.3rem;
+      padding: 0.8rem 1.4rem;
+      font-size: 1.1rem;
+      background-color: #00bcd4;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #0097a7;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @media (min-width: 1600px) {
+      .main-content {
+        max-width: 1400px;
+        padding: 3rem;
+      }
+
+      header h1 {
+        font-size: 4rem;
+      }
+
+      header p {
+        font-size: 1.5rem;
+      }
+
+      ul li {
+        font-size: 1.4rem;
+      }
+
+      .section h2 {
+        font-size: 2.4rem;
+      }
+    }
+
+    .section#learning-progress {
+      margin-top: 2rem;
+    }
+
+    .progress-bar {
+      margin-top: 1rem;
+    }
+
+    progress {
+      width: 100%;
+      height: 18px;
+      border-radius: 8px;
+      background: #eee;
+      appearance: none;
+    }
+
+    progress::-webkit-progress-bar {
+      background: #eee;
+    }
+
+    progress::-webkit-progress-value {
+      background: #00bcd4;
+      border-radius: 8px;
+    }
+
+    progress::-moz-progress-bar {
+      background: #00bcd4;
+      border-radius: 8px;
+    }
+
+    label {
+      font-size: 1.1rem;
+      color: inherit;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .about-me-list {
+      list-style-type: disc;
+      margin-left: 2rem;
+      font-size: 1.2rem; /* Consistent font size */
+    }
+
+    /* Ensured consistent font size with other sections */
+    .about-me p {
+      font-size: 1.2rem; /* Adjusted font size */
+    }
+
+    .about-me-list li {
+      font-size: 1.2rem; /* Consistent font size for list items */
+    }
+  </style>
+</head>
+<body class="nighttime">
+  <header>
+    <h1>Pravin Thombare</h1>
+    <p>Software Engineer | 1st Year Engineering Student | Learner | Tech Enthusiast</p>
+  </header>
+
+  <section class="main-content">
+    <div class="profile">
+      <img src="myphoto.jpg" alt="Photo of Pravin Thombare - Software Engineer" />
+    </div>
+
+    <div class="section" id="about">
+      <h2>About Me</h2>
+      <p class="about-me">Hello! I'm Pravin Thombare, a passionate and enthusiastic first-year Software Engineering student at MIT Academy of Engineering, Pune. I'm deeply interested in the rapidly evolving world of technology and always curious to explore how things work behind the scenes.</p>
+      <p class="about-me">From a young age, I was fascinated by computers and the endless possibilities they offer. This curiosity led me to pursue engineering and now I'm focused on building a strong foundation in programming, web development, and emerging fields like Quantum Computing and Artificial Intelligence.</p>
+      <p class="about-me">Currently, I’m learning and working on:</p>
+      <ul class="about-me-list">
+        <li>C Programming and Problem Solving</li>
+        <li>Web Development (HTML, CSS, JavaScript)</li>
+        <li>Version Control using Git & GitHub</li>
+        <li>Linux and Open-Source Tools</li>
+      </ul>
+      <p class="about-me">I enjoy participating in coding challenges, working on mini-projects, and contributing to academic group activities. Outside of academics, I like exploring new technologies, listening to podcasts on innovation, and designing user-friendly web interfaces.</p>
+      <p class="about-me">My goal is to become a skilled full-stack developer and contribute to real-world impactful tech projects. I believe in continuous learning, teamwork, and staying updated with the latest trends in the tech industry.</p>
+    </div>
+
+    <!-- New Education Section with Sentence Form -->
+    <div class="section" id="education">
+      <h2>Education</h2>
+      <p>I completed my 12th grade with 71%, my 10th grade with 87%, and achieved a 95 percentile in CET.</p>
+    </div>
+
+    <div class="section" id="skills">
+      <h2>Skills</h2>
+      <ul>
+        <li><i class="fas fa-code"></i> Languages: C, Python, Java, JavaScript, HTML, CSS</li>
+        <li><i class="fas fa-laptop-code"></i> Web: HTML5, CSS, JavaScript, React, Node.js</li>
+        <li><i class="fas fa-tools"></i> Tools: Git, GitHub, VS Code, Figma, Firebase, Netlify</li>
+        <li><i class="fas fa-database"></i> Databases: MySQL, MongoDB (Basics)</li>
+        <li><i class="fas fa-rocket"></i> Platforms: LeetCode, HackerRank, Codeforces, GitHub</li>
+        <li><i class="fas fa-users"></i> Soft Skills: Communication, Collaboration, Leadership</li>
+        <li><i class="fas fa-language"></i> Languages Known: English, Hindi, Marathi</li>
+      </ul>
+    </div>
+
+    <div class="section" id="projects">
+      <h2>Projects</h2>
+      <ul>
+        <li>🎨 <strong>Portfolio Website</strong> - Fully responsive, animated portfolio using HTML, CSS, JS</li>
+        <li>📝 <strong>To-Do App</strong> - Task manager with CRUD and localStorage</li>
+        <li>🧠 <strong>Quiz App</strong> - Real-time quiz app with React & Firebase</li>
+        <li>🍽️ <strong>Canteen Management App</strong> - Online ordering, payment & parcel booking system</li>
+        <li>🧠 <strong>Quantum Computing & Food Shortage (Research)</strong> - Assignment project on food shortage and quantum applications</li>
+      </ul>
+    </div>
+
+    <div class="section" id="languages">
+      <h2>Programming Languages</h2>
+      <ul>
+        <li>Java - Object-oriented, general-purpose programming language</li>
+        <li>JavaScript - Scripting language used for web development</li>
+        <li>Python - Widely used for AI, data science, and backend development</li>
+        <li>HTML5 - Markup language for creating web pages</li>
+        <li>CSS - Style sheet language used for layout and design of web pages</li>
+        <li>SQL - Language used for managing and manipulating relational databases</li>
+      </ul>
+    </div>
+
+    <div class="section" id="learning-progress">
+      <h2>Learning Progress</h2>
+      <p>Here’s a quick look at my journey in mastering various programming languages and technologies. I believe in continuous learning and adapting to new challenges.</p>
+      
+      <div class="progress-bar">
+        <label for="python">Python</label>
+        <progress id="python" value="80" max="100">80%</progress>
+      </div>
+      
+      <div class="progress-bar">
+        <label for="java">Java</label>
+        <progress id="java" value="70" max="100">70%</progress>
+      </div>
+      
+      <div class="progress-bar">
+        <label for="javascript">JavaScript</label>
+        <progress id="javascript" value="75" max="100">75%</progress>
+      </div>
+      
+      <div class="progress-bar">
+        <label for="html-css">HTML & CSS</label>
+        <progress id="html-css" value="90" max="100">90%</progress>
+      </div>
+
+      <div class="progress-bar">
+        <label for="mysql">SQL (MySQL)</label>
+        <progress id="mysql" value="60" max="100">60%</progress>
+      </div>
+    </div>
+
+    <div class="section" id="contact">
+      <h2>Contact</h2>
+      <ul>
+        <li><i class="fas fa-envelope"></i> Email: <a href="mailto:202401100022@mitaoe.ac.in">202401100022@mitaoe.ac.in</a></li>
+        <li><i class="fas fa-phone"></i> Phone: <a href="tel:+8432161495">+8432161495</a></li>
+        <li><i class="fas fa-map-marker-alt"></i> Pune, Maharashtra, India</li>
+      </ul>
+    </div>
+
+    <div class="section" id="info">
+      <h2>Academic Info</h2>
+      <ul>
+        <li><i class="fas fa-university"></i> MIT Academy of Engineering (MITAOE)</li>
+        <li><i class="fas fa-book"></i> Department: First Year Engineering (FE)</li>
+        <li><i class="fas fa-calendar-alt"></i> Semester: 2</li>
+        <li><i class="fas fa-users"></i> Division: CS5</li>
+        <li><i class="fas fa-branch"></i> Branch: Software Engineering</li>
+      </ul>
+    </div>
+  </section>
+</body>
+</html>
